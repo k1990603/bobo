@@ -1,0 +1,25 @@
+.ant-layout-header {
+  background-color: #fff;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ant-layout-footer {
+  background-color: #fff;
+}
+
+.ant-layout-footer {
+  padding-left: 35%;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.marginBtn {
+  margin: 0 6px;
+}
