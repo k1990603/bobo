@@ -10,27 +10,41 @@ let router = new Router ({
   routes: [
     {
       path: '/',
-      name: 'auth',
+      name: 'login',
       // component: () => import ('../views/one.vue'),
-      component: resolve => require (['../views/auth'], resolve),
+      component: resolve => require (['../views/login'], resolve),
     },
     {
-      path: '/auth',
-      name: 'auth',
-      // component: () => import ('../views/one.vue'),
-      component: resolve => require (['../views/auth'], resolve),
-    },
-    {
-      path: '/two',
-      name: 'two',
-      // component: () => import ('../views/two.vue'),
-      component: resolve => require (['../views/two'], resolve),
-    },
-    {
-      path: '/three',
-      name: 'three',
-      // component: () => import ('../views/HelloWorld.vue'),
-      component: resolve => require (['../views/three'], resolve),
+      path: '/sf_cloud',
+      name: 'sf_cloud',
+      redirect: '/',
+      component: resolve => require (['../views/index'], resolve),
+      children: [
+        {
+          path: '/',
+          name: 'auth',
+          // component: () => import ('../views/one.vue'),
+          component: resolve => require (['../views/auth'], resolve),
+        },
+        {
+          path: '/auth',
+          name: 'auth',
+          // component: () => import ('../views/one.vue'),
+          component: resolve => require (['../views/auth'], resolve),
+        },
+        {
+          path: '/two',
+          name: 'two',
+          // component: () => import ('../views/two.vue'),
+          component: resolve => require (['../views/two'], resolve),
+        },
+        {
+          path: '/three',
+          name: 'three',
+          // component: () => import ('../views/HelloWorld.vue'),
+          component: resolve => require (['../views/three'], resolve),
+        },
+      ],
     },
   ],
 });
