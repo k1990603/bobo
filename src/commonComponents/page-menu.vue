@@ -36,7 +36,7 @@ export default {
           label: "权限系统",
           children: [
             { key: "1", to: "/auth", label: "用户管理" },
-            { key: "2", to: "/auth", label: "角色管理" },
+            { key: "2", to: "/group", label: "角色管理" },
             { key: "3", to: "/three", label: "菜单管理" },
             { key: "4", to: "/three", label: "功能管理" },
             { key: "5", to: "/three", label: "接口管理" }

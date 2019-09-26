@@ -5,6 +5,9 @@
         <a-form-item>
           <a-input placeholder="用户编号"></a-input>
         </a-form-item>
+        <a-form-item>
+          <a-input placeholder="角色编号"></a-input>
+        </a-form-item>
         <a-form-item class="fright">
           <a-button icon="plus" @click="addUser">新增</a-button>
         </a-form-item>

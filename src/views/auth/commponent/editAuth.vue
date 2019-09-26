@@ -8,19 +8,19 @@
         ></a-input>
       </a-form-item>
       <a-form-item label="用户昵称" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-        <a-input
-          placeholder="用户昵称"
-          v-decorator="['name', { rules: [{required:true, message: '请输入用户昵称'}] }]"
-        ></a-input>
+        <a-input placeholder="用户昵称" v-decorator="['name', { rules: [] }]"></a-input>
       </a-form-item>
       <a-form-item label="手机号" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-        <a-input
-          placeholder="手机号"
-          v-decorator="['mobile', { rules: [{required:true, message: '请输入手机号'}] }]"
-        ></a-input>
+        <a-input placeholder="手机号" v-decorator="['mobile', { rules: [] }]"></a-input>
       </a-form-item>
       <a-form-item label="角色" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-        <a-select v-decorator="['group']"></a-select>
+        <a-select v-decorator="['group', { rules: [{required:true, message: '请输入用户ID'}] }]"></a-select>
+      </a-form-item>
+      <a-form-item label="业务线" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+        <a-select v-decorator="['group', { rules: [{required:true, message: '请输入用户ID'}] }]"></a-select>
+      </a-form-item>
+      <a-form-item label="服务范围" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+        <a-select v-decorator="['group', { rules: [{required:true, message: '请输入用户ID'}] }]"></a-select>
       </a-form-item>
     </a-form>
     <template slot="footer">

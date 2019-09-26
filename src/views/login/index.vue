@@ -10,7 +10,7 @@ export default {
   methods: {
     login() {
       this.$router.push({
-        path: "/sf_cloud",
+        path: "/auth",
         key: new Date()
       });
     }

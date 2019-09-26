@@ -1,10 +1,9 @@
 <template>
   <div id="main">
-    <a-layout-header>
-      <a-form layout="inline" :form="form">
-        <a-form-item>
-          <a-input placeholder="名称"></a-input>
-        </a-form-item>
+    <a-layout-header></a-layout-header>
+    <a-layout-content>
+      <a-form :form="form">
+        <a-form-item label="角色名称">{{ 角色名称 }}</a-form-item>
         <a-form-item class="fright">
           <a-button icon="plus" @click="addUser">新增</a-button>
         </a-form-item>
@@ -15,52 +14,16 @@
           <a-button>清除条件</a-button>
         </a-form-item>
       </a-form>
-    </a-layout-header>
-    <a-layout-content>
-      <a-table
-        :columns="columns"
-        :dataSource="dataTable"
-        :rowKey="record => record.userId"
-        :pagination="false"
-        bordered
-      >
-        <template slot="action">
-          <a-button type="primary" size="small" class="marginBtn" @click="editUser">编辑</a-button>
-          <a-button type="danger" size="small" class="marginBtn">删除</a-button>
-          <a-button type="danger" size="small" class="marginBtn" @click="toBindMenu">绑定菜单</a-button>
-        </template>
-      </a-table>
     </a-layout-content>
-    <a-layout-footer>
-      <a-pagination
-        :pageSizeOptions="pageSizeOptions"
-        :total="totalPage"
-        :current="page.page"
-        showSizeChanger
-        showQuickJumper
-        @change="paginationChange"
-        @showSizeChange="onShowSizeChange"
-      ></a-pagination>
-    </a-layout-footer>
-    <modalWin
-      :visible="visible"
-      :confirmLoading="false"
-      :title="title"
-      @addAction="addAction"
-      @addCancel="addCancel"
-    ></modalWin>
+    <a-layout-footer></a-layout-footer>
   </div>
 </template>
 
 <script>
 import * as API from "../../api/one";
-import modalWin from "./commponent/editAuth.vue";
 import { setTimeout } from "timers";
 
 export default {
-  components: {
-    modalWin
-  },
   data() {
     return {
       form: this.$form.createForm(this),
@@ -215,12 +178,6 @@ export default {
     },
     addCancel() {
       this.visible = false;
-    },
-    toBindMenu() {
-      this.$router.push({
-        path: "/configGroup",
-        key: new Date()
-      });
     }
   }
 };

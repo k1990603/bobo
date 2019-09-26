@@ -21,16 +21,27 @@ let router = new Router ({
       component: resolve => require (['../views/index'], resolve),
       children: [
         {
-          path: '/',
+          path: '/auth',
           name: 'auth',
           // component: () => import ('../views/one.vue'),
           component: resolve => require (['../views/auth'], resolve),
         },
         {
-          path: '/auth',
-          name: 'auth',
-          // component: () => import ('../views/one.vue'),
-          component: resolve => require (['../views/auth'], resolve),
+          path: '/group',
+          component: resolve => require (['../views/group/overview'], resolve),
+          children: [
+            {
+              path: '/',
+              name: 'group',
+              component: resolve => require (['../views/group'], resolve),
+            },
+            {
+              path: '/configGroup',
+              name: 'configGroup',
+              component: resolve =>
+                require (['../views/group/configGroup'], resolve),
+            },
+          ],
         },
         {
           path: '/two',
