@@ -1,5 +1,5 @@
 <template>
-  <div id="group">
+  <div id="menu">
     <transition name="slide-fade" mode="out-in">
       <router-view />
     </transition>

@@ -1,5 +1,5 @@
 import api from '../utils/apiUtils';
 
-export const shareList = function (shareId) {
-  return api.get ('/api/vsc/share/shareList', {shareId: shareId});
-};
+export function login (params) {
+  return api.postForm ('/auth/sys/login', params);
+}

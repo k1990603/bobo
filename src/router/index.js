@@ -44,6 +44,23 @@ let router = new Router ({
           ],
         },
         {
+          path: '/menu',
+          component: resolve => require (['../views/menu/overview'], resolve),
+          children: [
+            {
+              path: '/',
+              name: 'menu',
+              component: resolve => require (['../views/menu'], resolve),
+            },
+            {
+              path: '/configMenu',
+              name: 'configMenu',
+              component: resolve =>
+                require (['../views/menu/configmenu'], resolve),
+            },
+          ],
+        },
+        {
           path: '/two',
           name: 'two',
           // component: () => import ('../views/two.vue'),

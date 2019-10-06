@@ -1,23 +1,31 @@
 import axios from 'axios';
 import router from '../router';
+import {message} from 'ant-design-vue';
+import qs from 'qs';
 
 //响应拦截器
 axios.interceptors.response.use (
   response => {
-    let res = response.data;
-    if (!res || !res.head) {
-      throw new Error ('发生未知错误，请稍后再试');
-    }
-    if (res.head.status == 1) {
-      return res.body;
-    } else if (res.head.errorCode === '3') {
-      router.replace ({path: 'overDue'});
-    } else if (res.head.errorCode === '999') {
-      return Promise.reject ('您的登录令牌已失效');
-      // throw new Error('您的登录令牌已失效');
+    // let res = response.data;
+    // if (!res || !res.head) {
+    //   throw new Error ('发生未知错误，请稍后再试');
+    // }
+    // if (res.head.status == 1) {
+    //   return res.body;
+    // } else if (res.head.errorCode === '3') {
+    //   router.replace ({path: 'overDue'});
+    // } else if (res.head.errorCode === '999') {
+    //   return Promise.reject ('您的登录令牌已失效');
+    //   // throw new Error('您的登录令牌已失效');
+    // } else {
+    //   return Promise.reject (res.head.errorMsg);
+    //   // throw new Error(res.head.errorMsg);
+    // }
+    if (response.data.code != 200) {
+      message.destroy ();
+      message.warning (response.data.desc);
     } else {
-      return Promise.reject (res.head.errorMsg);
-      // throw new Error(res.head.errorMsg);
+      return response.data;
     }
   },
   error => {
@@ -67,11 +75,16 @@ axios.interceptors.response.use (
   }
 );
 
-axios.defaults.baseURL = '/';
-axios.defaults.timeout = 10000;
+// axios.defaults.baseURL = '/';
+// axios.defaults.timeout = 10000;
 //设置默认请求头
-axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';
-axios.defaults.headers['Accept'] = 'application/json';
+// axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';
+// axios.defaults.withCredentials = false;
+axios.defaults.headers['Accept'] = '*/*';
+axios.defaults.headers['token'] = '777777';
+// axios.defaults.headers['content-Type'] = 'application/x-www-form-urlencoded';
+// axios.defaults.headers['Content-Type'] = 'application/json';
+// axios.defaults.baseURL = 'http://95.179.211.152:9393';
 
 export default {
   get (url, params) {
@@ -81,20 +94,28 @@ export default {
       params,
     });
   },
-  post (url, params) {
+  post (url, data) {
     return axios ({
       method: 'POST',
+      headers: {'content-type': 'application/json'},
+      data,
       url,
-      params,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     });
   },
-  postJson (url, params) {
+  postForm (url, data) {
     return axios ({
       method: 'POST',
+      headers: {'content-type': 'application/x-www-form-urlencoded'},
+      data: qs.stringify (data),
       url,
-      params,
-      headers: {'Content-Type': 'application/json'},
+    });
+  },
+  postForms (url, data) {
+    return axios ({
+      method: 'POST',
+      headers: {'content-type': 'multipart/form-data'},
+      data,
+      url,
     });
   },
 };

@@ -1,26 +1,17 @@
 <template>
   <a-modal :title="title + '用户'" :visible="visible" :confirmLoading="confirmLoading">
     <a-form :form="form">
-      <a-form-item label="用户ID" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+      <a-form-item label="名称" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
         <a-input
-          placeholder="用户ID"
+          placeholder="名称"
           v-decorator="['user', { rules: [{required:true, message: '请输入用户ID'}] }]"
         ></a-input>
       </a-form-item>
-      <a-form-item label="用户昵称" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+      <a-form-item label="简称" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
         <a-input
-          placeholder="用户昵称"
+          placeholder="简称"
           v-decorator="['name', { rules: [{required:true, message: '请输入用户昵称'}] }]"
         ></a-input>
-      </a-form-item>
-      <a-form-item label="手机号" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-        <a-input
-          placeholder="手机号"
-          v-decorator="['mobile', { rules: [{required:true, message: '请输入手机号'}] }]"
-        ></a-input>
-      </a-form-item>
-      <a-form-item label="角色" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-        <a-select v-decorator="['group']"></a-select>
       </a-form-item>
     </a-form>
     <template slot="footer">

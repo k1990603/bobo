@@ -54,7 +54,7 @@
 
 <script>
 import * as API from "../../api/one";
-import modalWin from "./commponent/editGroup.vue";
+import modalWin from "./commponent/editMenu.vue";
 import { setTimeout } from "timers";
 
 export default {
