@@ -3,23 +3,53 @@
   padding-left: 0;
   padding-right: 0;
 }
-
 .ant-layout-footer {
   background-color: #fff;
 }
-
 .ant-layout-footer {
   padding-left: 35%;
 }
 
+/* start 路由跳转动画 */
+/* .slide-fade-enter {
+  transform: translateX(22px);
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.slide-fade-leave-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+.slide-fade-enter {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+.slide-fade-leave-active {
+  transform: translateX(22px);
+  opacity: 0;
+  transition: all 0.2s linear;
+} */
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+/* end 路由跳转动画 */
+
 .fleft {
   float: left;
 }
-
 .fright {
   float: right;
 }
-
 .marginBtn {
   margin: 0 6px;
 }

@@ -27,7 +27,7 @@
         <template slot="action">
           <a-button type="primary" size="small" class="marginBtn" @click="editUser">编辑</a-button>
           <a-button type="danger" size="small" class="marginBtn">删除</a-button>
-          <a-button type="danger" size="small" class="marginBtn" @click="toBindMenu">绑定菜单</a-button>
+          <a-button type="primary" size="small" class="marginBtn" @click="toBindMenu">绑定菜单</a-button>
         </template>
       </a-table>
     </a-layout-content>
